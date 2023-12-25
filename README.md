@@ -8,7 +8,6 @@ Follow the mmdet installation process
 
 We provide the data set in  ./mydata
 
-also submit on figshare ：https://figshare.com/articles/dataset/JujubeDataSet/24869886
 #### 3.Train
 
 Run the following commands for training.
