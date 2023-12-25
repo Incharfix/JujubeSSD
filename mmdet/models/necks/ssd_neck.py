@@ -105,9 +105,9 @@ class SSDNeck(BaseModule):
 
 
         self.last_channel = last_channel
-        self.conv1024 = nn.Conv2d(1024, self.last_channel, 1)
-        self.conv512 = nn.Conv2d(512, self.last_channel, 1)
-        self.conv256 = nn.Conv2d(256, self.last_channel, 1)
+        # self.conv1024 = nn.Conv2d(1024, self.last_channel, 1)
+        # self.conv512 = nn.Conv2d(512, self.last_channel, 1)
+        # self.conv256 = nn.Conv2d(256, self.last_channel, 1)
 
     def my_amend(self, type,inputs):
 
@@ -120,28 +120,6 @@ class SSDNeck(BaseModule):
                 output = inputs
 
         return output
-
-
-    def get256channel(self, inputlist):
-
-         # 测试 gfl 归一成512
-        for i in range(len(inputlist)):
-            if (inputlist[i]).shape[1] ==self.last_channel :
-                pass
-            else:
-                if (inputlist[i]).shape[1] ==256 :
-                    temp256 = self.conv256(inputlist[i])
-                    inputlist[i] = temp256
-                elif (inputlist[i]).shape[1] ==1024:
-                   temp1024 = self.conv1024(inputlist[i])
-                   inputlist[i] = temp1024
-                elif (inputlist[i]).shape[1] ==512:
-                   temp512 = self.conv512(inputlist[i])
-                   inputlist[i] = temp512
-
-        return inputlist
-
-
 
     # input   = 512,64,64
            #    1024，32，32

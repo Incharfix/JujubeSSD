@@ -2,7 +2,7 @@
 cudnn_benchmark = True
 # data_root = '../../dataset/mycoco_20230202'
 
-data_root ='/home/mmdetection/dataset/mycoco_20230220'
+data_root ='./mydata'
 img_norm_cfg = dict(mean=[123.675, 116.28, 103.53], std=[1, 1, 1], to_rgb=True)
 
 
@@ -115,8 +115,8 @@ model = dict(
         max_per_img=200))
 
 data = dict(
-    samples_per_gpu=1,
-    workers_per_gpu=2,
+    samples_per_gpu=2,
+    workers_per_gpu=4,
     train=dict(
         type='CocoDataset',
         ann_file=data_root + '/annotations/instances_train2017.json',
